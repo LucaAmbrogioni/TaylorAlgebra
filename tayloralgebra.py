@@ -1,6 +1,5 @@
 import operator
-#import math
-import numpy as math
+import numpy as np
 
 from scipy import special
 from scipy.special import factorial
@@ -209,9 +208,9 @@ class PrimitiveFunction(SymbolicFunction):
 class ExponentialFunction(PrimitiveFunction):
 
     def __init__(self):
-        coeff_generator = lambda c, n: math.exp(c)/factorial(n)
-        fn = lambda x: math.exp(x)
-        inv_fn = lambda x: math.log(x)
+        coeff_generator = lambda c, n: np.exp(c)/factorial(n)
+        fn = lambda x: np.exp(x)
+        inv_fn = lambda x: np.log(x)
         super().__init__(coeff_generator, fn, inv_fn)
 
     def derivative(self):
@@ -221,9 +220,9 @@ class ExponentialFunction(PrimitiveFunction):
 class LogarithmFunction(PrimitiveFunction):
 
     def __init__(self):
-        coeff_generator = lambda c, n: (-1)**(n+1)*c**(-n)/n if n>0 else math.log(c)
-        fn = lambda x: math.log(x)
-        inv_fn = lambda x: math.exp(x)
+        coeff_generator = lambda c, n: (-1)**(n+1)*c**(-n)/n if n>0 else np.log(c)
+        fn = lambda x: np.log(x)
+        inv_fn = lambda x: np.exp(x)
         super().__init__(coeff_generator, fn, inv_fn)
 
     def derivative(self):
@@ -233,9 +232,9 @@ class LogarithmFunction(PrimitiveFunction):
 class SineFunction(PrimitiveFunction):
 
     def __init__(self):
-        coeff_generator = lambda c, n: math.sin(n*math.pi/2. + c)/factorial(n)
-        fn = lambda x: math.sin(x)
-        inv_fn = lambda x: math.arcsin(x)
+        coeff_generator = lambda c, n: np.sin(n*np.pi/2. + c)/factorial(n)
+        fn = lambda x: np.sin(x)
+        inv_fn = lambda x: np.arcsin(x)
         super().__init__(coeff_generator, fn, inv_fn)
 
     def derivative(self):
@@ -245,9 +244,9 @@ class SineFunction(PrimitiveFunction):
 class CosineFunction(PrimitiveFunction):
 
     def __init__(self):
-        coeff_generator = lambda c, n: math.cos(n*math.pi/2. + c)/factorial(n)
-        fn = lambda x: math.cos(x)
-        inv_fn = lambda x: math.arccos(x)
+        coeff_generator = lambda c, n: np.cos(n*np.pi/2. + c)/factorial(n)
+        fn = lambda x: np.cos(x)
+        inv_fn = lambda x: np.arccos(x)
         super().__init__(coeff_generator, fn, inv_fn)
 
     def derivative(self):
@@ -257,7 +256,7 @@ class CosineFunction(PrimitiveFunction):
 class LogGammaFunction(PrimitiveFunction):
 
     def __init__(self):
-        fn = lambda x: math.log(special.gamma(x))
+        fn = lambda x: np.log(special.gamma(x))
         inv_fn = None
 
         def coeff_generator(c, n):
