@@ -1,6 +1,8 @@
 import operator
-import math
+#import math
+import numpy as math
 
+from scipy import special
 from scipy.special import factorial
 
 class TaylorExpansion(object):
@@ -150,13 +152,19 @@ class SymbolicFunction(object):
         return self.__mul__(other)
 
     def __truediv__(self, other):
-        return self._apply_operator(MultiplicativeInverse()(other), operator.mul)
+        if isinstance(other, SymbolicFunction):
+            return self*(MultiplicativeInverse()(other))
+        else:
+            return self*other
 
     def __rtruediv__(self, other):
         return self.__truediv__(other)**(-1)
 
     def __pow__(self, other):
-        return self._apply_operator(other, operator.pow)
+        if isinstance(other, int):
+            return PowerFunction(other)(self)
+        else:
+            return ExponentialFunction()(other*LogarithmFunction()(self))
 
     def __rpow__(self, other):
         raise NotImplementedError
@@ -164,9 +172,28 @@ class SymbolicFunction(object):
 
 class PrimitiveFunction(SymbolicFunction):
 
-    def __init__(self, coeff_generator):
+    def __init__(self, coeff_generator, fn, inv_fn=None):
         self.coeff_generator = coeff_generator
+        self.fn = fn
+        self.inv_fn = inv_fn
         self.taylor_expansion = {}
+
+    def evaluate(self, x):
+        return self.fn(x)
+
+    # def invert(self):
+    #     assert self.inv_fn is not None, "The function cannot be inverted"
+    #     inv_derivative_function = MultiplicativeInverse()(self.derivative())
+    #
+    #     def inv_coeff(c, n):
+    #         if n == 0:
+    #             return self.inv_fn(c)
+    #         elif n == 1:
+    #             return 1 / self.coeff_generator(self.inv_fn(c), n)
+    #         else:
+    #             return inv_derivative_function.get_expansion(self.inv_fn(c), n)[n-1]
+    #
+    #     return PrimitiveFunction(inv_coeff, self.inv_fn, self.fn)
 
     def get_expansion(self, center, cut_off):
         if (center, cut_off) not in self.taylor_expansion:
@@ -175,40 +202,86 @@ class PrimitiveFunction(SymbolicFunction):
             self.taylor_expansion.update({(center, cut_off): TaylorExpansion(coefficients, center, cut_off)})
         return self.taylor_expansion[(center, cut_off)]
 
+    def derivative(self):
+        pass #abstract
+
 
 class ExponentialFunction(PrimitiveFunction):
 
     def __init__(self):
         coeff_generator = lambda c, n: math.exp(c)/factorial(n)
-        super().__init__(coeff_generator)
+        fn = lambda x: math.exp(x)
+        inv_fn = lambda x: math.log(x)
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return ExponentialFunction()
 
 
 class LogarithmFunction(PrimitiveFunction):
 
     def __init__(self):
         coeff_generator = lambda c, n: (-1)**(n+1)*c**(-n)/n if n>0 else math.log(c)
-        super().__init__(coeff_generator)
+        fn = lambda x: math.log(x)
+        inv_fn = lambda x: math.exp(x)
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return MultiplicativeInverse()
 
 
 class SineFunction(PrimitiveFunction):
 
     def __init__(self):
         coeff_generator = lambda c, n: math.sin(n*math.pi/2. + c)/factorial(n)
-        super().__init__(coeff_generator)
+        fn = lambda x: math.sin(x)
+        inv_fn = lambda x: math.arcsin(x)
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return CosineFunction()
 
 
 class CosineFunction(PrimitiveFunction):
 
     def __init__(self):
         coeff_generator = lambda c, n: math.cos(n*math.pi/2. + c)/factorial(n)
-        super().__init__(coeff_generator)
+        fn = lambda x: math.cos(x)
+        inv_fn = lambda x: math.arccos(x)
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return SineFunction()
+
+
+class LogGammaFunction(PrimitiveFunction):
+
+    def __init__(self):
+        fn = lambda x: math.log(special.gamma(x))
+        inv_fn = None
+
+        def coeff_generator(c, n):
+            if n == 0:
+                return fn(c)
+            else:
+                return special.polygamma(n-1, c)/factorial(n)
+
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return SineFunction()
 
 
 class MultiplicativeInverse(PrimitiveFunction):
 
     def __init__(self):
         coeff_generator = lambda c, n: (-1)**n*c**(-(n+1))
-        super().__init__(coeff_generator)
+        fn = lambda x: 1/x
+        inv_fn = lambda x: 1/x
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return -PowerFunction(2)(MultiplicativeInverse())
 
 
 class PowerFunction(PrimitiveFunction):
@@ -224,7 +297,13 @@ class PowerFunction(PrimitiveFunction):
             else:
                 return decreasing_factorial(k, n-1)
         coeff_generator = lambda c, n: (decreasing_factorial(k, n)/factorial(n))*c**(k-n) if n <= k else 0.
-        super().__init__(coeff_generator)
+        fn = lambda x: x**k
+        inv_fn = lambda x: x**(1/k)
+        self.k = k
+        super().__init__(coeff_generator, fn, inv_fn)
+
+    def derivative(self):
+        return self.k*PowerFunction(self.k - 1)
 
 class CompositeFunction(SymbolicFunction):
 
@@ -239,3 +318,11 @@ class CompositeFunction(SymbolicFunction):
             left_center = center
         return op(left.get_expansion(left_center, cut_off) if isinstance(left, SymbolicFunction) else left,
                   right.get_expansion(center, cut_off) if isinstance(right, SymbolicFunction) else right)
+
+    def evaluate(self, x):
+        op, left, right = self.operation_list
+        if op is compose_operator:
+            return left.evaluate(right.evaluate(x))
+        else:
+            return op(left.evaluate(x) if isinstance(left, SymbolicFunction) else left,
+                      right.evaluate(x) if isinstance(right, SymbolicFunction) else right)
