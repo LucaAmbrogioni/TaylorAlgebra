@@ -2,6 +2,8 @@
 A simple package for algebraic manipulation of Taylor series. It allows to sum, multiply, divide and compose Taylor series automatically.
 
 # Example code
+
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -20,3 +22,4 @@ f_max = max(f(x_range))
 f_min = min(f(x_range))
 plt.ylim(f_min-0.1, f_max+0.1)
 plt.show()
+```
