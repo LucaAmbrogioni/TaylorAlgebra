@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="567a1a73-1d9c-4cd7-8162-9f7f2ad886ef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbolic_playground.py" beforeDir="false" afterPath="$PROJECT_DIR$/symbolic_playground.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tayloralgebra.py" beforeDir="false" afterPath="$PROJECT_DIR$/tayloralgebra.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,15 +32,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="79" />
+          <entry key="Python Console" value="89" />
           <entry key="dummy" value="21" />
-          <entry key="py" value="4851" />
+          <entry key="py" value="5182" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="4930" />
+          <entry key="Python" value="5271" />
         </counts>
       </usages-collector>
     </session>
@@ -48,26 +50,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tayloralgebra.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2678">
-              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+            <state relative-caret-position="406">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1565180759028" expanded="true" signature="518:523" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="4102:5555" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="4335:4420" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="4506:4512" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="5867:5872" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="5943:6407" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="6059:6070" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="6059:6322" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="8227:8236" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="8627:8911" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="9115:9244" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="9555:9557" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="9599:9600" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="9599:9605" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="9640:9691" ph="..." />
-                <marker date="1565180759028" expanded="true" signature="9926:10140" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="518:523" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="4391:5848" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="4624:4709" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="4795:4801" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="6160:6165" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="6236:6700" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="6352:6363" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="6352:6615" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="8520:8529" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="8920:9204" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="9408:9541" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="9852:9854" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="9896:9897" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="9896:9902" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="9937:9988" ph="..." />
+                <marker date="1565261130060" expanded="true" signature="10223:10437" ph="..." />
               </folding>
             </state>
           </provider>
@@ -76,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/symbolic_playground.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="120">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -117,6 +119,7 @@
       <find>TaylorFun</find>
       <find>asin</find>
       <find>math</find>
+      <find>get_expa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -267,7 +270,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.3291866" />
@@ -275,7 +278,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3291866" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291866" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -288,10 +291,61 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tayloralgebra.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>self.coefficients[0] == other.center</expression-string>
+        <expression-string>self[k] * power</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>[1,2,3] + 4</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self[k] * power + 5</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self[k] * power + 4</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self[k] * power + 3</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self[k] * power + 1</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>right</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>left(right)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>right.operation_list[1].operation_list[1].get_expansion(center, cut_off)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -314,8 +368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/symbolic_playground.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="120">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -324,26 +378,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tayloralgebra.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2678">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        <state relative-caret-position="406">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1565180759028" expanded="true" signature="518:523" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="4102:5555" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="4335:4420" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="4506:4512" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="5867:5872" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="5943:6407" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="6059:6070" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="6059:6322" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="8227:8236" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="8627:8911" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="9115:9244" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="9555:9557" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="9599:9600" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="9599:9605" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="9640:9691" ph="..." />
-            <marker date="1565180759028" expanded="true" signature="9926:10140" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="518:523" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="4391:5848" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="4624:4709" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="4795:4801" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="6160:6165" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="6236:6700" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="6352:6363" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="6352:6615" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="8520:8529" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="8920:9204" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="9408:9541" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="9852:9854" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="9896:9897" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="9896:9902" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="9937:9988" ph="..." />
+            <marker date="1565261130060" expanded="true" signature="10223:10437" ph="..." />
           </folding>
         </state>
       </provider>

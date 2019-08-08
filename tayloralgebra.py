@@ -89,7 +89,9 @@ class TaylorExpansion(object):
         for k in range(1, min(len(self), cut_off)):
             result += self[k] * power
             power = power * (other - self.center)
-        return result
+        return result if isinstance(result, TaylorExpansion) else TaylorExpansion(coefficients=[result],
+                                                                                  center=self.center,
+                                                                                  cut_off=self.cut_off)
 
     def _sort(self, other):
         longer = self if len(self) > len(other) else other
@@ -154,7 +156,7 @@ class SymbolicFunction(object):
         if isinstance(other, SymbolicFunction):
             return self*(MultiplicativeInverse()(other))
         else:
-            return self*other
+            return self*(1/other)
 
     def __rtruediv__(self, other):
         return self.__truediv__(other)**(-1)
@@ -294,7 +296,7 @@ class PowerFunction(PrimitiveFunction):
             elif n == 1:
                 return k
             else:
-                return decreasing_factorial(k, n-1)
+                return k*decreasing_factorial(k-1, n-1)
         coeff_generator = lambda c, n: (decreasing_factorial(k, n)/factorial(n))*c**(k-n) if n <= k else 0.
         fn = lambda x: x**k
         inv_fn = lambda x: x**(1/k)
