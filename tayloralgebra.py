@@ -17,7 +17,7 @@ class TaylorExpansion(object):
         return len(self) - 1
 
     def __str__(self):
-       return self.coefficients.__str__()
+        return self.coefficients.__str__()
 
     def __call__(self, x):
         if isinstance(x, TaylorExpansion):
@@ -36,7 +36,7 @@ class TaylorExpansion(object):
 
     def __add__(self, other):
         if isinstance(other, TaylorExpansion):
-            assert self.center == other.center, "You cannot sum Taylor series defined at different points (centers)"
+            #assert self.center == other.center, "You cannot sum Taylor series defined at different points (centers)"
             cut_off = self._get_cut_off(other)
             longer, shorter = self._sort(other)
             return TaylorExpansion([a + shorter[k] if k < len(shorter) else a
@@ -61,7 +61,7 @@ class TaylorExpansion(object):
             cut_off = self.cut_off
             new_coefficients = [other * a for a in self.coefficients]
         elif isinstance(other, (TaylorExpansion)):
-            assert self.center == other.center, "You cannot multiply Taylor series defined at different points (centers)"
+            #assert self.center == other.center, "You cannot multiply Taylor series defined at different points (centers)"
             new_coefficients = []
             longer, shorter = self._sort(other)
             cut_off = self._get_cut_off(other)
@@ -120,6 +120,9 @@ class SymbolicFunction(object):
     def get_expansion(self, center, cut_off):
         pass #Abstract
 
+    def evaluate(self, x):
+        pass #abstract
+
     def _apply_operator(self, other, op):
         operation_list = [op, self, other]
         return CompositeFunction(operation_list)
@@ -127,6 +130,8 @@ class SymbolicFunction(object):
     def __call__(self, x):
         if isinstance(x, SymbolicFunction):
             return self.compose(x)
+        else:
+            return self.evaluate(x)
 
     def compose(self, other):
         return self._apply_operator(other, compose_operator)
